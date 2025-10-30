@@ -1,53 +1,53 @@
-#🤖 Gmail Auto-Reply Bot
+# 🤖 Gmail Auto-Reply Bot
 
-Інтелектуальна система для автоматичної відповіді на email-повідомлення в Gmail, яка реагує на листи, що містять ключові слова.
+An intelligent system for automatically replying to email messages in Gmail, which responds to emails containing specific keywords.
 
-##🎯 Огляд проєкту
+## 🎯 Project Overview
 
-Gmail Auto-Reply Bot — це Python-застосунок, який підключається до вашого акаунту Gmail, перевіряє непрочитані повідомлення і, якщо знаходить у темі листа задане ключове слово, автоматично відправляє заздалегідь підготовлену відповідь.
+Gmail Auto-Reply Bot is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply.
 
-Ключові особливості:
+Key Features:
 
-    🔐 Безпечне підключення до Gmail API за допомогою OAuth 2.0
+    🔐 Secure connection to the Gmail API using OAuth 2.0
 
-    📧 Автоматичний моніторинг непрочитаних листів
+    📧 Automatic monitoring of unread emails
 
-    🔑 Відправка відповідей на основі ключових слів у темі
+    🔑 Sends replies based on keywords in the subject line
 
-    📝 Налаштовуваний шаблон відповіді
+    📝 Customizable reply template
 
-    ❗ Деталізоване логування для моніторингу та відладки
+    ❗ Detailed logging for monitoring and debugging
 
-    💪 Надійна обробка помилок у процесі роботи
+    💪 Robust error handling during operation
 
-🛠️ Технології та інструменти
+🛠️ Technologies & Tools
 
     Python 3.8+
 
-    Gmail API - для читання пошти та відправки відповідей
+    Gmail API - for reading mail and sending replies
 
-    Google OAuth - для безпечної автентифікації
+    Google OAuth - for secure authentication
 
-    Logging - для моніторингу та відладки
+    Logging - for monitoring and debugging
 
-📋 Системні вимоги
+📋 System Requirements
 
-    Python 3.8 або вище
+    Python 3.8 or higher
 
-    Акаунт Google
+    A Google Account
 
-    Увімкнений доступ до Gmail API
+    Gmail API access enabled
 
-🚀 Встановлення та налаштування
+🚀 Installation & Setup
 
-1. Клонуйте репозиторій
+1. Clone the repository
 
 Bash
 
 git clone https://github.com/your-username/GmailAutoReply
 cd GmailAutoReply
 
-2. Створіть віртуальне середовище
+2. Create a virtual environment
 
 Bash
 
@@ -59,72 +59,72 @@ python -m venv .venv
 # macOS/Linux
 source .venv/bin/activate
 
-3. Встановіть залежності
+3. Install dependencies
 
-Створіть файл requirements.txt з таким вмістом:
+Create a requirements.txt file with the following content:
 Plaintext
 
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 
-І виконайте команду:
+And run the command:
 Bash
 
 pip install -r requirements.txt
 
-4. Налаштуйте Google API
+4. Configure Google API
 
-    Перейдіть до Google Cloud Console.
+    Go to the Google Cloud Console.
 
-    Створіть новий проєкт та увімкніть Gmail API.
+    Create a new project and enable the Gmail API.
 
-    Створіть облікові дані OAuth 2.0 Client ID.
+    Create OAuth 2.0 Client ID credentials.
 
-    Завантажте credentials.json і розмістіть його в кореневій папці проєкту.
+    Download credentials.json and place it in the project's root directory.
 
-5. Налаштуйте конфігурацію
+5. Configure the application
 
-Відредагуйте файл config.py, щоб налаштувати ключове слово та шаблон відповіді:
+Edit the config.py file to set the keyword and reply template:
 Python
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
-KEYWORD = "doctor"  # Ключове слово для пошуку в темі листа
-MAILTEMPLATE = "Дякуємо за ваш лист! Ми скоро з вами зв'яжемося." # Шаблон відповіді
+KEYWORD = "doctor"  # Keyword to search for in the email subject
+MAILTEMPLATE = "Thank you for your email! We will get back to you shortly." # Reply template
 
-💻 Використання
+💻 Usage
 
-Запустіть головний скрипт. При першому запуску потрібно буде пройти автентифікацію Google у браузері.
+Run the main script. On the first run, you will need to authenticate with Google in your browser.
 Bash
 
 python main.py
 
-Структура проєкту:
+Project Structure:
 
 gmail-auto-reply/
-├── main.py              # Головний файл для запуску
-├── google_auth.py       # Модуль автентифікації Google
-├── mail_parser.py       # Модуль для пошуку листів
-├── mail_reply.py        # Модуль для відправки відповідей
-├── logger.py            # Налаштування логування
-├── config.py            # Конфігурація скрипта
-├── requirements.txt     # Залежності проєкту
-└── logs/                # Папка для лог-файлів (створюється автоматично)
+├── main.py              # Main application entry point
+├── google_auth.py       # Google authentication module
+├── mail_parser.py       # Email parsing module
+├── mail_reply.py        # Email reply module
+├── logger.py            # Logging configuration
+├── config.py            # Script configuration
+├── requirements.txt     # Project dependencies
+└── logs/                # Logs directory (created automatically)
 
-📝 Логування
+📝 Logging
 
-Усі операції записуються в:
+All operations are logged to:
 
-    Консоль - основна інформація та помилки
+    Console - for basic information and errors
 
-    Лог-файли - детальна інформація в папці logs/
+    Log files - for detailed information in the logs/ directory
 
-Формат лог-файлу: logs_YYYYMMDD.log
+Log file format: logs_YYYYMMDD.log
 
-🛡️ Безпека
+🛡️ Security
 
-    Для доступу до API використовується безпечний протокол OAuth 2.0.
+    Secure OAuth 2.0 is used for API access.
 
-    Секретні файли (token.json, credentials.json) не повинні потрапляти в репозиторій (рекомендується додати їх у .gitignore).
+    Secret files (token.json, credentials.json) should not be committed to the repository (it is recommended to add them to .gitignore).
 
-⭐ Якщо цей проєкт був корисним, будь ласка, поставте йому зірку на GitHub!
+⭐ If you found this project helpful, please give it a star on GitHub!
