@@ -104,10 +104,8 @@ Log file format: `logs_YYYYMMDD.log`
 ## ⚙️ Configuration
 
 ### Configurable parameters in `config.py`:
-- `AI_MODEL` - OpenAI model (default: gpt-5-nano)
-- `MAILBOX_SELECT` - mailbox to process (default: inbox)
-- `MAILS_TO_SEARCH` - type of emails to search for (default: UNSEEN)
-- `RESPONSE_FILE` - file to save results
+- `KEYWORD`: keyword searched in summary
+- `MAILTEMPLATE`: reply body
 
 ## 🛡️ Security
 
