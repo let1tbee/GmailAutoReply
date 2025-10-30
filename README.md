@@ -18,24 +18,22 @@ Gmail Auto-Reply Bot is a Python application that connects to your Gmail account
 ## 🛠️ Technologies & Tools
 
 - **Python 3.8+**
-- **OpenAI API** - for text analysis
-- **IMAP/Gmail API** - for email retrieval
-- **python-dotenv** - for configuration management
+- **Gmail API** - for reading mail and sending replies
+- **Google OAuth** - for secure authentication
 - **Logging** - for monitoring and debugging
 
 ## 📋 System Requirements
 
 - Python 3.8 or higher
-- Gmail account with two-factor authentication enabled
-- OpenAI API key
-- Gmail app password
+- A Google Account
+- Gmail API access enabled
 
 ## 🚀 Installation & Setup
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/let1tbee/Email-Assistant
-cd Email-Assistant
+git clone https://github.com/your-username/GmailAutoReply
+cd GmailAutoReply
 ```
 
 ### 2. Create a virtual environment
@@ -54,39 +52,21 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
-Create a `.env` file based on the `.env.example`:
-
-```bash
-cp .env.example .env
-```
-
-Fill in your `.env` file with your credentials:
-```env
-GMAIL_EMAIL=your-email@gmail.com
-GMAIL_PASSWORD=your-app-password
-OPENAI_API_KEY=your-openai-api-key
-IMAP_SERVER=imap.gmail.com
-IMAP_PORT=993
-```
-
-### 5. Gmail Setup
+### 4. Configure Google API
 
 #### Enable Two-Factor Authentication:
-1. Go to [Google Account Settings](https://myaccount.google.com/)
-2. Select "Security" → "2-Step Verification"
-3. Enable two-factor authentication
+1. Go to [Google Cloud Console.](https://console.cloud.google.com/)
+2. Create a new project and enable the Gmail API.
+3. Create OAuth 2.0 Client ID credentials.
+4. Download `credentials.json` and place it in the project's root directory.
 
-#### Create App Password:
-1. In the "Security" section, select "App passwords"
-2. Select "Mail" and your operating system
-3. Copy the generated password to the `GMAIL_PASSWORD` variable
-
-### 6. Get OpenAI API Key
-1. Register on [OpenAI Platform](https://platform.openai.com/)
-2. Navigate to API Keys section
-3. Create a new API key
-4. Copy the key to the `OPENAI_API_KEY` variable
+### 5. Configure the application
+Edit the `config.py` file to set the keyword and reply template:
+```bash
+SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+KEYWORD = "doctor"  # Keyword to search for in the email subject
+MAILTEMPLATE = "Thank you for your email! We will get back to you shortly." # Reply template
+```
 
 ## 💻 Usage
 
@@ -97,35 +77,20 @@ python main.py
 
 ### Project Structure:
 ```
-ai-email-analyzer/
-├── main.py              # Main application file
-├── mails_handler.py     # Email processing module
-├── openAI_handler.py    # OpenAI integration module
-├── utils.py             # Utility functions
+gmail-auto-reply/
+├── main.py              # Main application entry point
+├── google_auth.py       # Google authentication module
+├── mail_parser.py       # Email parsing module
+├── mail_reply.py        # Email reply module
 ├── logger.py            # Logging configuration
-├── config.py            # Application configuration
+├── config.py            # Script configuration
 ├── requirements.txt     # Project dependencies
-├── .env.example         # Environment variables example
-├── .gitignore           # Git ignore file
 └── logs/                # Logs directory (created automatically)
 ```
 
 ## 📊 Sample Output
 
-The application generates an `output.txt` file with analysis results:
 
-```
-Main Points from Emails:
-• Meeting scheduled for tomorrow at 2 PM
-• Budget report needs review by Friday
-• New project requirements received
-
-Action Items:
-• Prepare presentation materials for tomorrow's meeting
-• Review and approve Q3 budget report
-• Schedule call with client to discuss new requirements
-• Send confirmation email for meeting attendance
-```
 
 ## 📝 Logging
 
@@ -145,18 +110,9 @@ Log file format: `logs_YYYYMMDD.log`
 
 ## 🛡️ Security
 
-- All sensitive data is stored in the `.env` file
-- The `.env` file is added to `.gitignore`
-- SSL connection is used for IMAP
-- API keys are not stored in the code
+- Secure OAuth 2.0 is used for API access.
+- Secret files (`token.json, credentials.json`) should not be committed to the repository (it is recommended to add them to `.gitignore`).
 
-
-## ❗ Limitations
-
-- Maximum 5 emails per run (API token limitation)
-- Only Gmail IMAP is supported
-- Only unread emails are analyzed
-- Requires active internet connection
 
 ---
 
