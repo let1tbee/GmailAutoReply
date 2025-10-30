@@ -1,40 +1,53 @@
-# 🤖 Gmail Auto-Reply Bot
+#🤖 Gmail Auto-Reply Bot
 
-An intelligent system for automatically replying to email messages in Gmail, which responds to emails containing specific keywords.
+Інтелектуальна система для автоматичної відповіді на email-повідомлення в Gmail, яка реагує на листи, що містять ключові слова.
 
-## 🎯 Project Overview
+##🎯 Огляд проєкту
 
-**Gmail Auto-Reply Bot** is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply.
+Gmail Auto-Reply Bot — це Python-застосунок, який підключається до вашого акаунту Gmail, перевіряє непрочитані повідомлення і, якщо знаходить у темі листа задане ключове слово, автоматично відправляє заздалегідь підготовлену відповідь.
 
-### Key Features:
-- 🔐 Secure connection to the Gmail API using OAuth 2.0
-- 📧 Automatic monitoring of unread emails
-- 🔑 Sends replies based on keywords in the subject line
-- 📝 Customizable reply template
-- ❗ Detailed logging for monitoring and debugging
-- 💪 Robust error handling during operation
+Ключові особливості:
 
-## 🛠️ Technologies & Tools
+    🔐 Безпечне підключення до Gmail API за допомогою OAuth 2.0
 
-- **Python 3.8+**
-- **Gmail API** - for reading mail and sending replies
-- **Google OAuth** - for secure authentication
-- **Logging** - for monitoring and debugging
+    📧 Автоматичний моніторинг непрочитаних листів
 
-## 📋 System Requirements
+    🔑 Відправка відповідей на основі ключових слів у темі
 
-- Python 3.8 or higher
-- A Google Account
-- Gmail API access enabled
+    📝 Налаштовуваний шаблон відповіді
 
-## 🚀 Installation & Setup
+    ❗ Деталізоване логування для моніторингу та відладки
 
-### 1. Clone the repository
-```bash
-git clone [https://github.com/your-username/GmailAutoReply](https://github.com/your-username/GmailAutoReply)
+    💪 Надійна обробка помилок у процесі роботи
+
+🛠️ Технології та інструменти
+
+    Python 3.8+
+
+    Gmail API - для читання пошти та відправки відповідей
+
+    Google OAuth - для безпечної автентифікації
+
+    Logging - для моніторингу та відладки
+
+📋 Системні вимоги
+
+    Python 3.8 або вище
+
+    Акаунт Google
+
+    Увімкнений доступ до Gmail API
+
+🚀 Встановлення та налаштування
+
+1. Клонуйте репозиторій
+
+Bash
+
+git clone https://github.com/your-username/GmailAutoReply
 cd GmailAutoReply
 
-2. Create a virtual environment
+2. Створіть віртуальне середовище
 
 Bash
 
@@ -46,72 +59,72 @@ python -m venv .venv
 # macOS/Linux
 source .venv/bin/activate
 
-3. Install dependencies
+3. Встановіть залежності
 
-Create a requirements.txt file with the following content:
+Створіть файл requirements.txt з таким вмістом:
 Plaintext
 
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 
-And run the command:
+І виконайте команду:
 Bash
 
 pip install -r requirements.txt
 
-4. Configure Google API
+4. Налаштуйте Google API
 
-    Go to the Google Cloud Console.
+    Перейдіть до Google Cloud Console.
 
-    Create a new project and enable the Gmail API.
+    Створіть новий проєкт та увімкніть Gmail API.
 
-    Create OAuth 2.0 Client ID credentials.
+    Створіть облікові дані OAuth 2.0 Client ID.
 
-    Download credentials.json and place it in the project's root directory.
+    Завантажте credentials.json і розмістіть його в кореневій папці проєкту.
 
-5. Configure the application
+5. Налаштуйте конфігурацію
 
-Edit the config.py file to set the keyword and reply template:
+Відредагуйте файл config.py, щоб налаштувати ключове слово та шаблон відповіді:
 Python
 
-SCOPES = ["[https://www.googleapis.com/auth/gmail.modify](https://www.googleapis.com/auth/gmail.modify)"]
-KEYWORD = "doctor"  # Keyword to search for in the email subject
-MAILTEMPLATE = "Thank you for your email! We will get back to you shortly." # Reply template
+SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+KEYWORD = "doctor"  # Ключове слово для пошуку в темі листа
+MAILTEMPLATE = "Дякуємо за ваш лист! Ми скоро з вами зв'яжемося." # Шаблон відповіді
 
-💻 Usage
+💻 Використання
 
-Run the main script. On the first run, you will need to authenticate with Google in your browser.
+Запустіть головний скрипт. При першому запуску потрібно буде пройти автентифікацію Google у браузері.
 Bash
 
 python main.py
 
-Project Structure:
+Структура проєкту:
 
 gmail-auto-reply/
-├── main.py              # Main application entry point
-├── google_auth.py       # Google authentication module
-├── mail_parser.py       # Email parsing module
-├── mail_reply.py        # Email reply module
-├── logger.py            # Logging configuration
-├── config.py            # Script configuration
-├── requirements.txt     # Project dependencies
-└── logs/                # Logs directory (created automatically)
+├── main.py              # Головний файл для запуску
+├── google_auth.py       # Модуль автентифікації Google
+├── mail_parser.py       # Модуль для пошуку листів
+├── mail_reply.py        # Модуль для відправки відповідей
+├── logger.py            # Налаштування логування
+├── config.py            # Конфігурація скрипта
+├── requirements.txt     # Залежності проєкту
+└── logs/                # Папка для лог-файлів (створюється автоматично)
 
-📝 Logging
+📝 Логування
 
-All operations are logged to:
+Усі операції записуються в:
 
-    Console - for basic information and errors
+    Консоль - основна інформація та помилки
 
-    Log files - for detailed information in the logs/ directory
+    Лог-файли - детальна інформація в папці logs/
 
-Log file format: logs_YYYYMMDD.log
+Формат лог-файлу: logs_YYYYMMDD.log
 
-🛡️ Security
+🛡️ Безпека
 
-    Secure OAuth 2.0 is used for API access.
+    Для доступу до API використовується безпечний протокол OAuth 2.0.
 
-    Secret files (token.json, credentials.json) should not be committed to the repository (it is recommended to add them to .gitignore).
+    Секретні файли (token.json, credentials.json) не повинні потрапляти в репозиторій (рекомендується додати їх у .gitignore).
 
-⭐ If you found this project helpful, please give it a star on GitHub!
+⭐ Якщо цей проєкт був корисним, будь ласка, поставте йому зірку на GitHub!
