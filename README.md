@@ -90,6 +90,7 @@ gmail-auto-reply/
 
 ## 📊 Sample Output
 
+<img width="430" height="177" alt="image" src="https://github.com/user-attachments/assets/7857e18c-5191-43cf-a05f-57087c25fcc2" />
 
 
 ## 📝 Logging
