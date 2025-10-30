@@ -26,7 +26,7 @@ def mail_reply(message_id, receiver, references, subject,service,thread_id):
     message['From'] = "me"
 
     message['In-Reply-To'] = message_id
-    message['References'] = f"{references} {message_id}"
+    message['References'] = references
 
     encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
     create_message_request = {
