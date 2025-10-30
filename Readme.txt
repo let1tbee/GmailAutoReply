@@ -1,50 +1,37 @@
-🤖 Gmail Auto-Reply Bot
+# 🤖 Gmail Auto-Reply Bot
 
 An intelligent system for automatically replying to email messages in Gmail, which responds to emails containing specific keywords.
 
-🎯 Project Overview
+## 🎯 Project Overview
 
-Gmail Auto-Reply Bot is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply.
+**Gmail Auto-Reply Bot** is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply.
 
-Key Features:
+### Key Features:
+- 🔐 Secure connection to the Gmail API using OAuth 2.0
+- 📧 Automatic monitoring of unread emails
+- 🔑 Sends replies based on keywords in the subject line
+- 📝 Customizable reply template
+- ❗ Detailed logging for monitoring and debugging
+- 💪 Robust error handling during operation
 
-    🔐 Secure connection to the Gmail API using OAuth 2.0
+## 🛠️ Technologies & Tools
 
-    📧 Automatic monitoring of unread emails
+- **Python 3.8+**
+- **Gmail API** - for reading mail and sending replies
+- **Google OAuth** - for secure authentication
+- **Logging** - for monitoring and debugging
 
-    🔑 Sends replies based on keywords in the subject line
+## 📋 System Requirements
 
-    📝 Customizable reply template
+- Python 3.8 or higher
+- A Google Account
+- Gmail API access enabled
 
-    ❗ Detailed logging for monitoring and debugging
+## 🚀 Installation & Setup
 
-    💪 Robust error handling during operation
-
-🛠️ Technologies & Tools
-
-    Python 3.8+
-
-    Gmail API - for reading mail and sending replies
-
-    Google OAuth - for secure authentication
-
-    Logging - for monitoring and debugging
-
-📋 System Requirements
-
-    Python 3.8 or higher
-
-    A Google Account
-
-    Gmail API access enabled
-
-🚀 Installation & Setup
-
-1. Clone the repository
-
-Bash
-
-git clone https://github.com/your-username/GmailAutoReply
+### 1. Clone the repository
+```bash
+git clone [https://github.com/your-username/GmailAutoReply](https://github.com/your-username/GmailAutoReply)
 cd GmailAutoReply
 
 2. Create a virtual environment
@@ -88,7 +75,7 @@ pip install -r requirements.txt
 Edit the config.py file to set the keyword and reply template:
 Python
 
-SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+SCOPES = ["[https://www.googleapis.com/auth/gmail.modify](https://www.googleapis.com/auth/gmail.modify)"]
 KEYWORD = "doctor"  # Keyword to search for in the email subject
 MAILTEMPLATE = "Thank you for your email! We will get back to you shortly." # Reply template
 
