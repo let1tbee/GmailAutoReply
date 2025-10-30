@@ -10,7 +10,7 @@ logger = get_logger(__name__)
 
 def mail_parser(creds):
     """
-       Checks unread messages. If there are keyword in subject of unread messages - calls mail_reply sunction
+       Checks unread messages. If there are keywords in subject of unread messages - calls mail_reply() function
 
        Args:
            creds: Credentials object
