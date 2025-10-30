@@ -38,10 +38,12 @@ def mail_parser(creds):
             for name in message_content:
                 if name.get("name") == "From":
                     receiver = name.get("value")
+                if name.get("name") == "Message-ID":
+                    references = name.get("value")
                 if name.get("name") == "Subject":
                     if name.get("value").lower().count(KEYWORD) > 0:
                         logger.info(f'Mails with keywords found: {name.get("value")}')
-                        mail_reply(message["id"], receiver, name.get("value"), service, thread_id)
+                        mail_reply(message["id"], receiver, references, name.get("value"), service, thread_id)
 
     except HttpError as error:
         logger.warning(f"An error occurred during parsing mails: {error}")

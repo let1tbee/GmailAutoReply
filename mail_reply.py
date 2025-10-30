@@ -6,7 +6,7 @@ from googleapiclient.errors import HttpError
 
 logger = get_logger(__name__)
 
-def mail_reply(message_id, receiver, subject,service,thread_id):
+def mail_reply(message_id, receiver, references, subject,service,thread_id):
     """
        Mail reply according to given details
 
@@ -26,7 +26,7 @@ def mail_reply(message_id, receiver, subject,service,thread_id):
     message['From'] = "me"
 
     message['In-Reply-To'] = message_id
-    message['References'] = message_id
+    message['References'] = f"{references} {message_id}"
 
     encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
     create_message_request = {
