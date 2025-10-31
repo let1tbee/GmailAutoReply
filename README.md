@@ -4,7 +4,7 @@ An intelligent system for automatically replying to email messages in Gmail, whi
 
 ## 🎯 Project Overview
 
-Gmail Auto-Reply Bot is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply. This project allows user to set up Google Script with trigger upun receiveing a new mail.
+Gmail Auto-Reply Bot is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply. This project allows user to set up Google Script with trigger upon receiveing a new mail.
 
 ### Key Features:
 
