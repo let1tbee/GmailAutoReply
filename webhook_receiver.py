@@ -2,7 +2,7 @@ from flask import Flask,request, jsonify
 from google_auth import google_auth
 from logger import get_logger
 from mail_parser import mail_parser
-SECRET_TOKEN = "afs789df9ads86"
+from config import SECRET_TOKEN
 
 logger = get_logger(__name__)
 app = Flask(__name__)
