@@ -35,6 +35,7 @@ def mail_parser(creds):
             )
             message_content = msg.get("payload", {}).get("headers")
             thread_id = message["threadId"]
+
             for name in message_content:
                 if name.get("name") == "From":
                     receiver = name.get("value")
@@ -44,6 +45,11 @@ def mail_parser(creds):
                     if name.get("value").lower().count(KEYWORD) > 0:
                         logger.info(f'Mails with keywords found: {name.get("value")}')
                         mail_reply(message["id"], receiver, references, name.get("value"), service, thread_id)
+                        service.users().messages().modify(
+                            userId='me',
+                            id=thread_id,
+                            body={'removeLabelIds': ['UNREAD']}
+                        ).execute()
 
     except HttpError as error:
         logger.warning(f"An error occurred during parsing mails: {error}")
