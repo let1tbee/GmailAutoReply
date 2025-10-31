@@ -4,7 +4,7 @@ An intelligent system for automatically replying to email messages in Gmail, whi
 
 ## 🎯 Project Overview
 
-Gmail Auto-Reply Bot is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply.
+Gmail Auto-Reply Bot is a Python application that connects to your Gmail account, checks for unread messages, and if it finds a predefined keyword in the subject line, automatically sends a pre-written reply. This project allows user to set up Google Script with trigger upun receiveing a new mail.
 
 ### Key Features:
 
@@ -14,6 +14,7 @@ Gmail Auto-Reply Bot is a Python application that connects to your Gmail account
 - 📝 Customizable reply template
 - ❗ Detailed logging for monitoring and debugging
 - 💪 Robust error handling during operation
+- 🔑 Script is being triggered upon new mail is received
 
 ## 🛠️ Technologies & Tools
 
@@ -21,6 +22,7 @@ Gmail Auto-Reply Bot is a Python application that connects to your Gmail account
 - **Gmail API** - for reading mail and sending replies
 - **Google OAuth** - for secure authentication
 - **Logging** - for monitoring and debugging
+- **Webhook** - webhook is genereted via Google Script
 
 ## 📋 System Requirements
 
@@ -66,6 +68,7 @@ Edit the `config.py` file to set the keyword and reply template:
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
 KEYWORD = "doctor"  # Keyword to search for in the email subject
 MAILTEMPLATE = "Thank you for your email! We will get back to you shortly." # Reply template
+SECRET_TOKEN = YOUR_SECRET_TOKEN
 ```
 
 ## 💻 Usage
@@ -85,6 +88,8 @@ gmail-auto-reply/
 ├── logger.py            # Logging configuration
 ├── config.py            # Script configuration
 ├── requirements.txt     # Project dependencies
+├── GoogleScript         # script code for Google Script
+├── webhook_receiver.py  # Module for webhook processing
 └── logs/                # Logs directory (created automatically)
 ```
 
@@ -106,6 +111,7 @@ Log file format: `logs_YYYYMMDD.log`
 ### Configurable parameters in `config.py`:
 - `KEYWORD`: keyword searched in summary
 - `MAILTEMPLATE`: reply body
+- `SECRET_TOKEN`: secret token for webhook
 
 ## 🛡️ Security
 
