@@ -14,7 +14,7 @@ Gmail Auto-Reply Bot is a Python application that connects to your Gmail account
 - 📝 Customizable reply template
 - ❗ Detailed logging for monitoring and debugging
 - 💪 Robust error handling during operation
-- 🔑 Script is being triggered upon new mail is received
+- 🔑 Real-Time Event-Driven Replies: Utilizes a webhook trigger to respond to emails the moment they arrive.
 
 ## 🛠️ Technologies & Tools
 
@@ -70,6 +70,7 @@ KEYWORD = "doctor"  # Keyword to search for in the email subject
 MAILTEMPLATE = "Thank you for your email! We will get back to you shortly." # Reply template
 SECRET_TOKEN = YOUR_SECRET_TOKEN
 ```
+In case webhook functionality is required , set up Google Script with provided code.
 
 ## 💻 Usage
 
@@ -77,6 +78,9 @@ SECRET_TOKEN = YOUR_SECRET_TOKEN
 ```bash
 python main.py
 ```
+
+### Webhook Run:
+Start webhook_receiver.py on your server and setup Google Script trigger with provided in `GoogleScript` file code.
 
 ### Project Structure:
 ```
@@ -117,6 +121,7 @@ Log file format: `logs_YYYYMMDD.log`
 
 - Secure OAuth 2.0 is used for API access.
 - Secret files (`token.json, credentials.json`) should not be committed to the repository (it is recommended to add them to `.gitignore`).
+- Token is used for Webhook authentification
 
 
 ---
